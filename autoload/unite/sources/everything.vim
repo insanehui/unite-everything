@@ -2,7 +2,9 @@
 " 
 "=============================================================================
 
-" Variables  "{{{
+"{{{ Variables
+" 这应该是unite库提供的工具api，来设置一些全局变量的缺省值
+
 call unite#util#set_default('g:unite_source_everything_limit', 100)
 " search entire path
 call unite#util#set_default('g:unite_source_everything_full_path_search', 0)
@@ -21,8 +23,10 @@ call unite#util#set_default('g:unite_source_everything_ignore_pattern',
 call unite#util#set_default('g:unite_source_everything_async_minimum_length', 3)
 "}}}
 
+" es是否已安装
 let s:available_es = executable(g:unite_source_everything_cmd_path)
 
+" 构建source对象
 let s:source =
       \ { 'name'                    : 'everything'
       \ , 'description'             : 'candidates from everything'
@@ -33,6 +37,7 @@ let s:source =
       \ , 'hooks' : {}
       \ }
 
+" async的source对象
 let s:source_async =
       \ { 'name'                    : 'everything/async'
       \ , 'description'             : 'asynchronous candidates from everything'
