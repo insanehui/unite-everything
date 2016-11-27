@@ -47,14 +47,18 @@ let s:source_async =
       \ , 'hooks' : {}
       \ }
 
+" 猜测这应该是定义source的入口函数
 function! unite#sources#everything#define() "{{{
   let _ = []
+
+  " 只支持windows
   if unite#util#is_windows() && s:available_es
     call add(_, s:source)
     if unite#util#has_vimproc()
       call add(_, s:source_async)
     endif
   endif
+
   return _
 endfunction "}}}
 
